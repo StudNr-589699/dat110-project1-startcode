@@ -7,7 +7,10 @@ public class Message {
 	private int maxBytes = 127;
 
 	private byte[] data;
-
+/**
+ * 
+ * @param Implementing constructor og lagde en sjekk. task1. message.java
+ */
 	public Message(byte[] data) {
 		this.data = data;
 
