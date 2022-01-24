@@ -4,20 +4,23 @@ import no.hvl.dat110.TODO;
 
 public class Message {
 
+	private int maxBytes = 127;
+
 	private byte[] data;
 
 	public Message(byte[] data) {
-		
-		// TODO - START
-		
-		if (true)
-			throw new UnsupportedOperationException(TODO.constructor("Message"));
-			
-		// TODO - END
+		this.data = data;
+
+		if (data != null && data.length <= maxBytes) {
+
+			if (true)
+				throw new UnsupportedOperationException(TODO.constructor("Message"));
+		}
+
 	}
 
 	public byte[] getData() {
-		return this.data; 
+		return this.data;
 	}
 
 }
