@@ -8,7 +8,7 @@ public class Message {
 
 	private byte[] data;
 /**
- * 
+ *  hallaien
  * @param Implementing constructor og lagde en sjekk. task1. message.java
  */
 	public Message(byte[] data) {
