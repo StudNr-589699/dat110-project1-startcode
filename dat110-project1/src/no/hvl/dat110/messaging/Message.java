@@ -25,5 +25,7 @@ public class Message {
 	public byte[] getData() {
 		return this.data;
 	}
+	
+	// Github suger
 
 }
