@@ -60,5 +60,9 @@ public class RPCClient {
 		return returnval;
 		
 	}
+	
+	public boolean falskAlarm() {
+		return false;
+	}
 
 }
