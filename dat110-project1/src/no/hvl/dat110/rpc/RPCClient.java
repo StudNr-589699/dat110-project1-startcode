@@ -62,7 +62,8 @@ public class RPCClient {
 	}
 	
 	public boolean falskAlarm() {
-		return false;
+		boolean egil = false;
+		return egil;
 	}
 
 }
