@@ -5,7 +5,7 @@ import no.hvl.dat110.TODO;
 public class Message {
 
 	// setter bare max bytes
-	private final int maxBytes = 128;
+	private final int maxBytes = 127;
 	private byte[] data;
 
 	/**
@@ -13,6 +13,7 @@ public class Message {
 	 * @param Implementing constructor og lagde en sjekk. task1. message.java
 	 */
 	public Message(byte[] data) {
+		
 		if (data != null && data.length <= maxBytes) {
 			this.data = data;
 		}
