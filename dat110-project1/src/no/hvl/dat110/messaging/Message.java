@@ -4,20 +4,17 @@ import no.hvl.dat110.TODO;
 
 public class Message {
 
-	private int maxBytes = 127;
-
+	// setter bare max bytes
+	private final int maxBytes = 128;
 	private byte[] data;
-/**
- *  hallaien
- * @param Implementing constructor og lagde en sjekk. task1. message.java
- */
+
+	/**
+	 * 
+	 * @param Implementing constructor og lagde en sjekk. task1. message.java
+	 */
 	public Message(byte[] data) {
-		this.data = data;
-
 		if (data != null && data.length <= maxBytes) {
-
-			if (true)
-				throw new UnsupportedOperationException(TODO.constructor("Message"));
+			this.data = data;
 		}
 
 	}
@@ -25,8 +22,5 @@ public class Message {
 	public byte[] getData() {
 		return this.data;
 	}
-	
-	// Github suger
-	// hallaien 
 
 }
