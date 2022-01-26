@@ -59,7 +59,7 @@ public class Connection {
 		// TODO - START
 		
 		try {
-			data = inStream.readAllBytes();
+			data = inStream.readNBytes(MessageUtils.SEGMENTSIZE);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
