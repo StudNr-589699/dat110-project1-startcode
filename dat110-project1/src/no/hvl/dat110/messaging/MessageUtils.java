@@ -21,14 +21,16 @@ public class MessageUtils {
 		// TODO - START
 			
 		
-		byte[] segment = new byte[SEGMENTSIZE];
 		byte[] data = message.getData();
+		byte[] segment = new byte[data.length + 1];
 		
 		segment[0] = (byte) data.length;
 		
 		for (int i = 0; i < data.length; i++) {
 			segment[i + 1] = data[i];
 		}
+		
+		//byte[] data = message.getData();
 		
 		
 		

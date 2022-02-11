@@ -13,7 +13,10 @@ public class RPCUtils {
 		// TODO - START
 
 		rpcmsg = new byte[payload.length + 1];
+		
 		rpcmsg[0] = rpcid;
+		
+		
 		for (int i = 0; i < payload.length; i++) {
 			rpcmsg[i+1] = payload[i];
 		}
@@ -28,11 +31,15 @@ public class RPCUtils {
 		byte[] payload = null;
 		
 		// TODO - START
-
+		
 		payload = new byte[rpcmsg.length - 1];
-		for (int i = 0; i < payload.length; i++) {
+		
+		for (int i = 0; i < rpcmsg.length - 1; i++) {
 			payload[i] = rpcmsg[i + 1];
 		}
+		
+
+		
 		
 		// TODO - END
 		
@@ -114,9 +121,7 @@ public class RPCUtils {
 		
 		// TODO - START 
 		
-		ByteBuffer bb = ByteBuffer.allocate(4);
-		bb.putInt(x);
-		encoded = bb.array();
+		encoded = ByteBuffer.allocate(4).putInt(x).array();
 		
 		// TODO - END
 		
@@ -130,9 +135,9 @@ public class RPCUtils {
 		
 		// TODO - START 
 		
-		ByteBuffer bb = ByteBuffer.allocate(4);
-		bb.put(data);
-		decoded = bb.getInt();
+		ByteBuffer b = ByteBuffer.wrap(data);
+		
+		decoded = b.getInt();
 		
 		// TODO - END
 		

@@ -33,8 +33,10 @@ public class Connection {
 	}
 
 	public void send(Message message) {
-
+		
+		
 		byte[] data = MessageUtils.encapsulate(message);
+		
 		
 		// TODO - START
 		// encapsulate the data contained in the message and write to the output stream
@@ -54,17 +56,27 @@ public class Connection {
 	public Message receive() {
 
 		Message message = null;
+		byte[] dataLength = new byte[1];
+		byte[] payload = null;
 		byte[] data = null;
-		
 		// TODO - START
 		
 		try {
-			data = inStream.readNBytes(MessageUtils.SEGMENTSIZE);
+			inStream.read(dataLength);
+			payload = new byte[dataLength[0]];
+			inStream.read(payload);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		data = new byte[dataLength.length + payload.length];
+		
+		for (int i = 0; i < payload.length; i++) {
+			data[i + dataLength.length] = payload[i];
+		}
+		
+		data[0] = dataLength[0];
 		message = MessageUtils.decapsulate(data);
 		
 		

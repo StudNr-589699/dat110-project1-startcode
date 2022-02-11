@@ -21,7 +21,7 @@ public class MessagingClient {
 	// connect to messaging server
 	public Connection connect () {
 			
-		Socket clientSocket;
+		Socket clientSocket = null;
 		Connection connection = null;
 		
 		// TODO - START

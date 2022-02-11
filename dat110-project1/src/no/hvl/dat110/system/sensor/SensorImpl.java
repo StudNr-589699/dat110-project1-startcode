@@ -24,6 +24,7 @@ public class SensorImpl extends RPCRemoteImpl {
 	}
 	
 	public byte[] invoke(byte[] params) {
+		
 				
 		RPCUtils.unmarshallVoid(params); 
 		
