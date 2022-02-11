@@ -56,28 +56,40 @@ public class Connection {
 	public Message receive() {
 
 		Message message = null;
-		byte[] dataLength = new byte[1];
-		byte[] payload = null;
-		byte[] data = null;
-		// TODO - START
+//		byte[] dataLength = new byte[1];
+//		byte[] payload = null;
+//		byte[] data = null;
+//		// TODO - START
+//		
+//		try {
+//			inStream.read(dataLength);
+//			payload = new byte[dataLength[0]];
+//			inStream.read(payload);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		data = new byte[dataLength.length + payload.length];
+//		
+//		for (int i = 0; i < payload.length; i++) {
+//			data[i + dataLength.length] = payload[i];
+//		}
+//		
+//		data[0] = dataLength[0];
+//		message = MessageUtils.decapsulate(data);
+		
+		byte[] m = new byte[128];
 		
 		try {
-			inStream.read(dataLength);
-			payload = new byte[dataLength[0]];
-			inStream.read(payload);
+			inStream.read(m);
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		data = new byte[dataLength.length + payload.length];
-		
-		for (int i = 0; i < payload.length; i++) {
-			data[i + dataLength.length] = payload[i];
-		}
-		
-		data[0] = dataLength[0];
-		message = MessageUtils.decapsulate(data);
+		message = MessageUtils.decapsulate(m);
 		
 		
 		// TODO - END
